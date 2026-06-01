@@ -1,0 +1,36 @@
+# Reference hyperparameters for Assignment 2 / Assignment 3.
+# These match the report (Tables 1 and 3) and `train.py` defaults.
+
+environment:
+  n_floors: 6
+  arrival_prob: 0.15
+  episode_length: 200
+  car_capacity: 8
+
+# Common to all RL agents
+training:
+  episodes: 1000
+  seed: 42
+  eval_episodes: 100
+  eval_seed: 99
+
+# Tabular agents (Q-Learning, SARSA)
+tabular:
+  alpha: 0.1
+  gamma: 0.95
+  epsilon_start: 1.0
+  epsilon_min: 0.05
+  epsilon_decay: 0.995
+
+# Deep Q-Network
+dqn:
+  learning_rate: 0.001
+  gamma: 0.95
+  batch_size: 64
+  buffer_capacity: 50000
+  target_update_interval: 500   # in environment steps
+  epsilon_start: 1.0
+  epsilon_min: 0.05
+  epsilon_decay: 0.995
+  hidden_layers: [128, 128, 64]
+  grad_clip: 10.0
